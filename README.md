@@ -1,4 +1,4 @@
-# spatz-2
+# worxflow
 
 ## Description
 
@@ -6,10 +6,10 @@ A complete, fullstack template for Svelte, based on the original [spatz](https:/
 
 [Live Demo App](https://spatz2.engage-dev.com)
 
-## What's the difference between spatz and spatz-2?
+## What's the difference between spatz and worxflow?
 
 spatz uses standard forms in svelte and daisyUI.
-spatz-2 uses svelte-superforms, shadcn-svelte, stripe payments, and svelte-animations.
+worxflow uses svelte-superforms, shadcn-svelte, stripe payments, and svelte-animations.
 
 ## Tech Stack
 
@@ -45,8 +45,8 @@ spatz-2 uses svelte-superforms, shadcn-svelte, stripe payments, and svelte-anima
 1. Create a directory for your Pocketbase instance and navigate to it.
 
 ```bash
-mkdir pb-spatz-2
-cd pb-spatz-2
+mkdir pb-worxflow
+cd pb-worxflow
 ```
 
 2. Download the latest release of Pocketbase, unzip it, and start the server.
@@ -66,8 +66,8 @@ unzip pocketbase_0.22.9_linux_amd64.zip
 1. Clone the repo and navigate to the project directory.
 
 ```bash
-git clone https://github.com/engageintellect/spatz-2
-cd spatz-2
+git clone https://github.com/engageintellect/worxflow
+cd worxflow
 ```
 
 2. Copy .env.example and replace the values with your own.

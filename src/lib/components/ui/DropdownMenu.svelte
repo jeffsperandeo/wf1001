@@ -160,7 +160,7 @@
 		<!-- <DropdownMenu.Label>Support</DropdownMenu.Label> -->
 		<DropdownMenu.Item>
 			<a
-				href="https://github.com/engageintellect/spatz-2"
+				href="https://github.com/engageintellect/worxflow"
 				target="_blank"
 				class="flex w-full items-center"
 			>
@@ -170,7 +170,7 @@
 		</DropdownMenu.Item>
 		<DropdownMenu.Item>
 			<a
-				href="https://github.com/engageintellect/spatz-2/issues/new/choose"
+				href="https://github.com/engageintellect/worxflow/issues/new/choose"
 				target="_blank"
 				class="flex w-full items-center"
 			>
@@ -188,7 +188,7 @@
 
 		<DropdownMenu.Item>
 			<a
-				href="https://github.com/engageintellect/spatz-2/blob/main/README.md"
+				href="https://github.com/engageintellect/worxflow/blob/main/README.md"
 				target="_blank"
 				class="flex w-full items-center"
 			>

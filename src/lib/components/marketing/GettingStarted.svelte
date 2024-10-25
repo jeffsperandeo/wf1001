@@ -35,7 +35,7 @@
 		</a>
 
 		<a
-			href="https://github.com/new?template_name=spatz-2&template_owner=engageintellect"
+			href="https://github.com/new?template_name=worxflow&template_owner=engageintellect"
 			class="my-2 w-fit"
 		>
 			<Button variant="default" class="w-full bg-teal-500 hover:bg-teal-400">
