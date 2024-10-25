@@ -4,7 +4,7 @@
 
 export const siteInfo = {
 	name: "WorxFlow.io",
-	email: "engage_intellect@protonmail.com",
+	email: "radtkeimages@gmail.com.com",
 }
 
 export const services = [

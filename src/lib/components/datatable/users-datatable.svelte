@@ -10,8 +10,8 @@
 		addTableFilter
 	} from 'svelte-headless-table/plugins';
 	import { readable } from 'svelte/store';
-	import Actions from './users-datatable-actions.svelte';
-	import DataTableCheckbox from './users-datatable-checkbox.svelte';
+	import Actions from '../../../routes/app/users/users-datatable-actions.svelte';
+	import DataTableCheckbox from '../../../routes/app/users/users-datatable-checkbox.svelte';
 	import * as Table from '$lib/components/ui/table/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
