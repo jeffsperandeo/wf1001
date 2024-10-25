@@ -9,6 +9,7 @@
 
 	import { gsap } from 'gsap';
 	import Badge from '$lib/components/ui/badge/badge.svelte';
+	import { goto } from '$app/navigation';
 
 	export let data: any;
 	let hidden = true;
@@ -119,11 +120,15 @@
 
 <div class={`${hidden ? 'opacity-0' : ''} mx-auto`}>
 	<div class="animate-item">
-		<div class="bg-base-100 mx-auto h-full w-full">
+		<div class="bg-base-100 flex items-center justify-between mx-auto h-full w-full">
 			<h1 class="flex items-center gap-2 text-7xl font-bold text-primary">
-				<span class="animate-job">Jobs</span>
+				<span class="animate-job">My Jobs</span>
 				<span class="animate-db font-thin leading-[6rem] text-primary/50">Listings</span>
 			</h1>
+
+			<Button variant="default" size="lg" on:click={()=>{
+                goto('/app/job-listings/my/add-job')
+            }}>Add Job</Button>
 		</div>
 
 		<!-- Add an input field to filter jobs by title or description -->

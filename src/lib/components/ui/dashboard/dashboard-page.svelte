@@ -23,7 +23,7 @@
 	<enhanced:img src={DashboardLight} alt="Dashboard" class="block dark:hidden" />
 	<enhanced:img src={DashboardDark} alt="Dashboard" class="hidden dark:block" />
 </div> -->
-<div class="hidden flex-col md:flex">
+<div class="hidden flex-col w-full md:flex">
 	<div class="border-b">
 		<div class="flex h-16 items-center px-4">
 			<!-- <TeamSwitcher /> -->

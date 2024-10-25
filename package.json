@@ -58,6 +58,7 @@
 		"pocketbase": "^0.21.3",
 		"qrcode": "^1.5.4",
 		"stripe": "^16.8.0",
+		"svelte-headless-table": "^0.18.2",
 		"svelte-maplibre": "^0.9.9",
 		"svelte-motion": "^0.12.2",
 		"svelte-radix": "^1.1.1",

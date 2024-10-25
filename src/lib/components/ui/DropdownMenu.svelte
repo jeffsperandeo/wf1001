@@ -37,7 +37,7 @@
 		<DropdownMenu.Label class=" p-0">
 			<DropdownMenu.Item class="">
 				<a
-					href={`/users/${$currentUser.id}`}
+					href={`/app/users/${$currentUser.id}`}
 					data-sveltekit-preload-data="hover"
 					class="flex w-full items-center gap-2"
 				>
@@ -128,7 +128,7 @@
 			</DropdownMenu.Item>
 
 			<DropdownMenu.Item>
-				<a href={`/users`} class="flex w-full w-full items-center">
+				<a href={`/app/users`} class="flex w-full w-full items-center">
 					<Icon icon="mdi:users" class="mr-2 h-4 w-4" />
 					<span>User Directory</span>
 				</a>

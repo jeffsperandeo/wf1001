@@ -22,8 +22,6 @@
 		<SpatzLanding formData={data.form} />
 		<!-- IF USER IS LOGGED IN -->
 	{:else}
-		<div>
-			<WorxflowDashboard />
-		</div>
+		<WorxflowDashboard />
 	{/if}
 </div>

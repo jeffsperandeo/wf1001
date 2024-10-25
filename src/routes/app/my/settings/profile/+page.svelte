@@ -15,18 +15,17 @@
 	export let data;
 	export let form;
 	let loading: any;
+	let avatarPreview: string | null = null;
 
 	$: loading = false;
+
 	const showPreview = (event: any) => {
 		const target = event.target;
 		const files = target.files;
 
 		if (files.length > 0) {
 			const src = URL.createObjectURL(files[0]);
-			const preview = document.getElementById('avatar-preview') as HTMLImageElement;
-			if (preview) {
-				preview.src = src;
-			}
+			avatarPreview = src;
 		}
 	};
 
@@ -37,6 +36,7 @@
 				case 'success':
 					toast.success(`Profile updated successfully.`, {});
 					await invalidateAll();
+					avatarPreview = null; // Clear preview after successful update
 					break;
 				case 'error':
 					toast.error('Failed to update profile.', {});
@@ -63,16 +63,24 @@
 				<div class="flex items-center space-x-6">
 					<!-- Avatar -->
 					<div class="relative h-32 w-32">
-						{#if data.user?.avatar}
+						{#if avatarPreview}
+							<!-- Show the preview image when selected -->
 							<img
 								class="h-32 w-32 rounded-full border shadow"
-								src={data.user?.avatar
-									? getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)
-									: `https://ui-avatars.com/api/?name=${data.user?.email}`}
+								src={avatarPreview}
+								alt="User avatar"
+								id="avatar-preview"
+							/>
+						{:else if data.user?.avatar}
+							<!-- Show the existing avatar if no preview is selected -->
+							<img
+								class="h-32 w-32 rounded-full border shadow"
+								src={getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)}
 								alt="User avatar"
 								id="avatar-preview"
 							/>
 						{:else}
+							<!-- Default avatar if no image is uploaded or previewed -->
 							<Icon
 								icon="mdi-account-circle"
 								class="text-base-100 h-full w-full scale-110 rounded-full bg-primary"
@@ -86,15 +94,33 @@
 								<Icon icon="mdi:pencil" class="h-5 w-5" />
 							</div>
 						</label>
+						<!-- Avatar Upload -->
+						<div>
+							<input
+								type="file"
+								name="avatar"
+								id="avatar"
+								accept="image/*"
+								hidden
+								on:change={showPreview}
+								disabled={loading}
+							/>
+							{#if form?.errors?.avatar}
+								{#each form?.errors?.avatar as error}
+									<span class="text-error text-sm">{error}</span>
+								{/each}
+							{/if}
+						</div>
 					</div>
 
 					<!-- Name and Job Title -->
 					<div>
 						<div class="text-3xl font-bold text-primary">
-							Ali Muhammad {form?.data?.name ?? data?.user?.name}
+							{form?.data?.name ?? data?.user?.name}
 						</div>
 						<div class="text-xl text-gray-500">
-							Administrator {form?.data?.job_title ?? data?.user?.job_title}
+							{form?.data?.role ?? data?.user?.role} - {form?.data?.job_title ??
+								data?.user?.job_title}
 						</div>
 					</div>
 				</div>
@@ -107,25 +133,6 @@
 				<CardTitle>Personal Information</CardTitle>
 			</CardHeader>
 			<CardContent class="space-y-4">
-				<!-- Avatar Upload -->
-				<div>
-					<Label for="avatar">Profile Picture</Label>
-					<input
-						type="file"
-						name="avatar"
-						id="avatar"
-						accept="image/*"
-						hidden
-						on:change={showPreview}
-						disabled={loading}
-					/>
-					{#if form?.errors?.avatar}
-						{#each form?.errors?.avatar as error}
-							<span class="text-error text-sm">{error}</span>
-						{/each}
-					{/if}
-				</div>
-
 				<!-- Name Input -->
 				<div>
 					<Label for="name">Name</Label>
@@ -178,7 +185,7 @@
 					Update
 				</Button>
 
-				<a href={`/users/${$currentUser.id}`} class="w-full">
+				<a href={`/app/users/${$currentUser.id}`} class="w-full">
 					<Button variant="outline">
 						Profile
 						<Icon icon="mdi:arrow-right" class="h-5 w-5" />

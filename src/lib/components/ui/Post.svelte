@@ -60,7 +60,7 @@
 	<div class="card-body p-3 px-1 transition-all duration-300">
 		<div class="flex items-start gap-2">
 			<div>
-				<a href={`/users/${postAuthorId}`}>
+				<a href={`/app/users/${postAuthorId}`}>
 					<div class="h-10 w-10 md:h-12 md:w-12">
 						<img
 							src={avatar}
@@ -72,7 +72,7 @@
 			</div>
 			<div class="w-full">
 				<div class="flex items-center gap-2">
-					<a href={`/users/${postAuthorId}`} class="text-base lowercase text-primary"
+					<a href={`/app/users/${postAuthorId}`} class="text-base lowercase text-primary"
 						>{postAuthor}</a
 					>
 					<div class="text-xs text-foreground/70">

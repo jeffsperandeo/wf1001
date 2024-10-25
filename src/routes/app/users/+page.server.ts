@@ -6,27 +6,27 @@ export const load: PageServerLoad = async ({ locals }) => {
 		throw redirect(303, '/auth/login');
 	}
 
-	// GET POSTS
-	const posts = await locals.pb.collection('posts').getFullList({
-		sort: '-created'
-	});
-
-	// GET USERS
 	const users = await locals.pb.collection('users').getFullList({
-		sort: '-created'
+		sort: '-created',
+		batchSize: 200
 	});
 
-	// TRANSFORM POSTS
-	const transformedPosts = posts.map((post) => {
-		// Replace the comment IDs with the actual comment objects and include author details
+	const roles = await locals.pb.collection('roles').getFullList({
+		batchSize: 200
+	});
 
-		// Add author's username and avatar to each post
+	const roleMap = new Map();
+	roles.forEach((role: any) => {
+		roleMap.set(role.id, role.name); 
+	});
+
+	const usersWithRoles = users.map((user: any) => {
+		const roleName = roleMap.get(user.role); 
 		return {
-			...post,
-			username: users.find((user) => user.id === post.author)?.username,
-			avatar: users.find((user) => user.id === post.author)?.avatar
+			...user,
+			role: roleName || 'Unknown Role'
 		};
 	});
 
-	return { posts: transformedPosts, users: users };
+	return { users: usersWithRoles };
 };

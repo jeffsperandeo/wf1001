@@ -141,7 +141,7 @@
 						</div>
 						<div class="flex h-full max-h-96 flex-col gap-2 overflow-scroll p-5" slot="content">
 							{#each data.userFollowers as follower}
-								<a href={`/users/${follower.id}`} class="flex items-center gap-2">
+								<a href={`/app/users/${follower.id}`} class="flex items-center gap-2">
 									<img
 										src={follower.avatar
 											? getImageURL(follower.collectionId, follower.id, follower.avatar)
@@ -165,7 +165,7 @@
 						<div class="flex h-full max-h-96 flex-col gap-2 overflow-scroll p-5" slot="content">
 							{#each data.users as follower}
 								{#if data.userProfile.following.includes(follower.id)}
-									<a href={`/users/${follower.id}`} class="flex items-center gap-2">
+									<a href={`/app/users/${follower.id}`} class="flex items-center gap-2">
 										<img
 											src={follower.avatar
 												? getImageURL(follower.collectionId, follower.id, follower.avatar)
