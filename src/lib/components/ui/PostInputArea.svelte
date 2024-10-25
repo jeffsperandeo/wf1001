@@ -122,7 +122,7 @@
 
 				<div class="flex w-full gap-2 rounded-lg duration-300">
 					<div class="animate-avatar flex flex-col">
-						<a href={`/users/${userId}`}>
+						<a href={`/app/users/${userId}`}>
 							<div
 								class="transition-scale h-12 w-12 duration-300 hover:scale-[102%] md:h-16 md:w-16"
 							>

@@ -1,7 +1,5 @@
 <script lang="ts">
-	// import { PageData } from './$types.js';
 	import * as Form from '$lib/components/ui/form';
-	export let data;
 	import { Input } from '$lib/components/ui/input';
 	import { loginUserSchema, type LoginUserSchema } from '$lib/schema';
 	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
@@ -11,9 +9,10 @@
 	import { toast } from 'svelte-sonner';
 	import { onDestroy, onMount, tick } from 'svelte';
 	import { siteInfo } from '$lib/data.js';
-
+	
+	export let data;
 	let isSubmitting = false;
-
+	
 	const form = superForm(data.form, {
 		validators: zodClient(loginUserSchema)
 	});

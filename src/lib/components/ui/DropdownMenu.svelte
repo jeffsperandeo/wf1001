@@ -37,7 +37,7 @@
 		<DropdownMenu.Label class=" p-0">
 			<DropdownMenu.Item class="">
 				<a
-					href={`/users/${$currentUser.id}`}
+					href={`/app/users/${$currentUser.id}`}
 					data-sveltekit-preload-data="hover"
 					class="flex w-full items-center gap-2"
 				>
@@ -128,7 +128,7 @@
 			</DropdownMenu.Item>
 
 			<DropdownMenu.Item>
-				<a href={`/users`} class="flex w-full w-full items-center">
+				<a href={`/app/users`} class="flex w-full w-full items-center">
 					<Icon icon="mdi:users" class="mr-2 h-4 w-4" />
 					<span>User Directory</span>
 				</a>
@@ -160,7 +160,7 @@
 		<!-- <DropdownMenu.Label>Support</DropdownMenu.Label> -->
 		<DropdownMenu.Item>
 			<a
-				href="https://github.com/engageintellect/spatz-2"
+				href="https://github.com/engageintellect/worxflow"
 				target="_blank"
 				class="flex w-full items-center"
 			>
@@ -170,7 +170,7 @@
 		</DropdownMenu.Item>
 		<DropdownMenu.Item>
 			<a
-				href="https://github.com/engageintellect/spatz-2/issues/new/choose"
+				href="https://github.com/engageintellect/worxflow/issues/new/choose"
 				target="_blank"
 				class="flex w-full items-center"
 			>
@@ -188,7 +188,7 @@
 
 		<DropdownMenu.Item>
 			<a
-				href="https://github.com/engageintellect/spatz-2/blob/main/README.md"
+				href="https://github.com/engageintellect/worxflow/blob/main/README.md"
 				target="_blank"
 				class="flex w-full items-center"
 			>

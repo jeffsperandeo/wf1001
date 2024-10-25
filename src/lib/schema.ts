@@ -270,6 +270,34 @@ export const deletePostCommentSchema = z.object({
 	post: z.string()
 });
 
+// ------------------------------
+// ADD JOB SCHEMA
+// ------------------------------
+export const createJobSchema = z.object({
+	title: z
+		.string({ required_error: 'Job title is required' })
+		.min(1, { message: 'Job title must be at least 1 character' })
+		.max(100, { message: 'Job title must be 100 characters or less' }),
+	description: z
+		.string({ required_error: 'Job description is required' })
+		.min(1, { message: 'Description must be at least 1 character' })
+		.max(1000, { message: 'Description must be 1000 characters or less' })
+		.refine((value) => !filter.isProfane(value), {
+			message: 'Description contains inappropriate language'
+		}),
+	employment_type: z
+		.string({ required_error: 'Employment type is required' })
+		.min(1, { message: 'Employment type must be at least 1 character' })
+		.max(50, { message: 'Employment type must be 50 characters or less' }),
+	deadline: z
+		.string({ required_error: 'Deadline is required' })
+		.transform((str) => new Date(str))
+		.refine((date) => date > new Date(), {
+			message: 'Deadline must be a future date'
+		}),
+	// remote: z.boolean({ required_error: 'Remote option is required' })
+});
+
 export const checkoutSchema = z.object({
 	name: z.string().min(1, 'Name is required'),
 	email: z.string().email('Invalid email')

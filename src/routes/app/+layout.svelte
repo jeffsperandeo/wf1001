@@ -1,28 +1,28 @@
 <script lang="ts">
-	import '../app.css';
-	import Nav from '$lib/components/ui/Nav.svelte';
+	import '../../app.css';
 	import Footer from '$lib/components/ui/Footer.svelte';
 	import Command from '$lib/components/ui/Command.svelte';
 	import Toast from '$lib/components/ui/Toast.svelte';
 	import { ModeWatcher } from 'mode-watcher';
 	import { Toaster } from '$lib/components/ui/sonner';
-	import type { PageData } from './$types';
 	import { currentUser } from '$lib/stores/user';
 	import { toast } from '$lib/stores/toast';
 
 	export let data: PageData;
+	const userRole: string = data.userRole;
 	$: currentUser.set(data.user);
 
 	// START VIEW TRANSITIONS API
 	import { onNavigate } from '$app/navigation';
 	import Sidebar from '$lib/components/ui/Sidebar.svelte';
+	import type { PageData } from '../$types';
 
 	onNavigate((navigation) => {
-		// @ts-ignore <-- This is a private API so we need to ignore the TS error
+		// @ts-ignore
 		if (!document.startViewTransition) return;
 
 		return new Promise((resolve) => {
-			// @ts-ignore <-- This is a private API so we need to ignore the TS error
+			// @ts-ignore 
 			document.startViewTransition(async () => {
 				resolve();
 				await navigation.complete;
@@ -41,10 +41,9 @@
 {/if}
 
 <div class="flex min-h-[calc(100svh)] flex-row md:min-h-screen">
-	<!-- <Nav /> -->
-	<Sidebar />
+	<Sidebar {userRole} />
 
-	<main class="custom-scrollbar mx-auto my-2 w-full flex-grow overflow-x-clip px-2 md:my-5">
+	<main class="custom-scrollbar mx-auto my-2 w-full flex-grow overflow-x-clip px-10 md:my-5">
 		<slot />
 	</main>
 </div>

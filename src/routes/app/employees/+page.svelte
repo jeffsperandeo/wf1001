@@ -13,12 +13,13 @@
 	import Badge from '$lib/components/ui/badge/badge.svelte';
 
 	export let data: any;
+	console.log(data);
 	let hidden = true;
 
 	let filter = '';
 	let showScrollToTop = false;
 	let currentPage = 1;
-	const usersPerPage = 10; // Number of users per page
+	const usersPerPage = 10; // Number of employees per page
 
 	$: $currentUser = data.user;
 
@@ -26,9 +27,9 @@
 	let sortOption = 'all';
 	let roleFilter = 'all'; // New role filter option
 
-	// Reactive block to handle filtering users based on filter text, sort option, and role filter
+	// Reactive block to handle filtering employees based on filter text, sort option, and role filter
 	$: filteredUsers = (() => {
-		let result = data.users.filter((user: any) =>
+		let result = data.employees.filter((user: any) =>
 			user.username.toLowerCase().includes(filter.toLowerCase())
 		);
 
@@ -37,10 +38,6 @@
 			result = result.filter((user: any) => user.role === roleFilter);
 		}
 
-		// Apply following filter if needed
-		if (sortOption === 'following') {
-			result = result.filter((user: any) => $currentUser.following.includes(user.id));
-		}
 
 		return result;
 	})();
@@ -48,7 +45,7 @@
 	// Calculate total pages
 	$: totalPages = Math.ceil(filteredUsers.length / usersPerPage);
 
-	// Get the current slice of users based on the page
+	// Get the current slice of employees based on the page
 	$: paginatedUsers = filteredUsers.slice(
 		(currentPage - 1) * usersPerPage,
 		currentPage * usersPerPage
@@ -172,7 +169,7 @@
 	<div class="animate-item min-h-screen">
 		<div class="bg-base-100 mx-auto h-full w-full">
 			<h1 class="flex items-center gap-2 text-7xl font-bold text-primary">
-				<span class="animate-user">Users'</span>
+				<span class="animate-user">Employees'</span>
 				<span class="animate-db font-thin leading-[6rem] text-primary/50">Database</span>
 			</h1>
 		</div>
@@ -186,14 +183,14 @@
 				<Input
 					type="text"
 					class="border-none p-2 outline-none focus-visible:shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
-					placeholder="Search users by username..."
+					placeholder="Search employees by username..."
 					bind:value={filter}
 				/>
 			</div>
 
 			<div class="flex items-center justify-between border-b pb-2 text-xl font-thin">
-				<!-- Display the total count of filtered users -->
-				<div>{filter ? 'query matches' : 'total users'}: {filteredUsers.length}</div>
+				<!-- Display the total count of filtered employees -->
+				<div>{filter ? 'query matches' : 'total employees'}: {filteredUsers.length}</div>
 
 				<!-- Role filter buttons -->
 				<div class="flex items-center gap-2">
@@ -233,10 +230,10 @@
 			</div>
 		</div>
 
-		<!-- Display filtered and paginated users -->
+		<!-- Display filtered and paginated employees -->
 		<div class="animate-grid grid grid-cols-1 gap-2 px-1 pb-40 sm:grid-cols-2 md:grid-cols-3">
 			{#each paginatedUsers as user}
-				<a href={`/app/users/${user.id}`} class="user-wrapper group/userCard">
+				<a href={`/app/employees/${user.id}`} class="user-wrapper group/userCard">
 					<div
 						class={`rounded-lg border p-3 shadow transition-all duration-300 md:hover:border-muted-foreground`}
 					>

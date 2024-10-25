@@ -3,7 +3,7 @@
 
 
 export const siteInfo = {
-	name: "spatz2",
+	name: "WorxFlow.io",
 	email: "engage_intellect@protonmail.com",
 }
 

@@ -1,21 +1,24 @@
-import { type VariantProps, tv } from "tailwind-variants";
-export { default as Badge } from "./badge.svelte";
+import { type VariantProps, tv } from 'tailwind-variants';
+export { default as Badge } from './badge.svelte';
 
 export const badgeVariants = tv({
-	base: "focus:ring-ring inline-flex select-none items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2",
+	base: 'focus:ring-ring inline-flex select-none items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
 	variants: {
 		variant: {
-			default: "bg-primary text-primary-foreground hover:bg-primary/80 border-transparent",
-			secondary:
-				"bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent",
+			default: 'bg-primary text-primary-foreground hover:bg-primary/80 border-transparent',
+			secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent',
 			destructive:
-				"bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent",
-			outline: "text-foreground",
-		},
+				'bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent',
+			outline: 'text-foreground',
+			// Custom variants for roles
+			admin: 'bg-red-500 text-white hover:bg-red-600 border-transparent', // Red for admin
+			manager: 'bg-blue-500 text-white hover:bg-blue-600 border-transparent', // Blue for manager
+			technician: 'bg-green-500 text-white hover:bg-green-600 border-transparent' // Green for technician
+		}
 	},
 	defaultVariants: {
-		variant: "default",
-	},
+		variant: 'default'
+	}
 });
 
-export type Variant = VariantProps<typeof badgeVariants>["variant"];
+export type Variant = VariantProps<typeof badgeVariants>['variant'];

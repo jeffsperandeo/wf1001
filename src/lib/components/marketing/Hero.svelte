@@ -50,7 +50,7 @@
 
 	<div class="mt-2 grid w-full grid-cols-2 gap-2 md:grid-cols-3">
 		<a
-			href="https://github.com/new?template_name=spatz-2&template_owner=engageintellect"
+			href="https://github.com/new?template_name=worxflow&template_owner=engageintellect"
 			class=" flex-1"
 		>
 			<Button variant="default" class="w-full bg-teal-500 hover:bg-teal-400">
