@@ -40,6 +40,7 @@
 	"dependencies": {
 		"@iconify/svelte": "^4.0.2",
 		"@stripe/stripe-js": "^4.3.0",
+		"@sveltejs/adapter-node": "^5.2.9",
 		"@unovis/svelte": "1.4.3-beta.0",
 		"bad-words": "^4.0.0",
 		"bits-ui": "^0.21.12",
