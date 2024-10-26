@@ -88,7 +88,7 @@
 </svelte:head>
 
 <div
-	class="flex h-full w-full flex-col justify-center gap-5 rounded-lg p-5 sm:min-h-full md:flex-col md:justify-center md:border-none md:shadow-none"
+	class="flex h-full w-full flex-col items-center h-screen justify-center gap-5 rounded-lg p-5 sm:min-h-full md:flex-col md:justify-center md:border-none md:shadow-none"
 >
 	<div class="flex w-full items-center justify-center">
 		<div class="w-full max-w-xs">

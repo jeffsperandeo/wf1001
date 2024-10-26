@@ -6,6 +6,8 @@
 	import { currentUser } from '$lib/stores/user.js';
 	import SpatzMarketing from '$lib/components/ui/SpatzMarketing.svelte';
 	import WorxflowDashboard from '$lib/components/ui/WorxflowDashboard.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { goto } from '$app/navigation';
 </script>
 
 <svelte:head>
@@ -16,12 +18,12 @@
 	/>
 </svelte:head>
 
-<div class="flex flex-col gap-10 md:gap-20">
-	<!-- IF USER IS NOT LOGGED IN -->
-	{#if !$currentUser}
-		<SpatzLanding formData={data.form} />
-		<!-- IF USER IS LOGGED IN -->
-	{:else}
-		<WorxflowDashboard />
-	{/if}
+<div class="flex h-screen flex-col items-center justify-center gap-4">
+	<h1 class="text-4xl font-bold">Welcome to Worxflow</h1>
+	<Button
+		size="lg"
+		on:click={() => {
+			goto('/app/dashboard');
+		}}>Go to Dashboard</Button
+	>
 </div>
